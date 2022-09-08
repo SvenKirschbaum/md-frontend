@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@react-keycloak/web": "3.4.0",
-    "keycloak-js": "18.0.1",
+    "keycloak-js": "19.0.1",
     "moment": "2.29.4",
     "moment-duration-format": "2.3.2",
     "react": "17.0.2",
