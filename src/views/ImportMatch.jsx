@@ -5,10 +5,10 @@ import './ImportMatch.css'
 import {Button, Form, Modal} from "react-bootstrap";
 import {Route, Switch, useHistory, useParams} from "react-router";
 import NoMatch from "./NoMatch";
-import {useKeycloak} from "@react-keycloak/web";
 import Match from "../components/Match";
 import Moment from "react-moment";
 import moment from "moment";
+import {useAuth} from "react-oidc-context";
 
 function ImportMatch() {
     return (
@@ -74,14 +74,14 @@ function ImportStep1() {
 function ImportStep2() {
     const {matchId} = useParams();
     const history = useHistory();
-    const {keycloak} = useKeycloak();
+    const auth = useAuth()
 
     const [data, setData] = useState(null);
     const [playerMappings, setPlayerMappings] = useState({});
 
     useEffect(() => {
         let headers = new Headers();
-        headers.append("Authorization", "Bearer " + keycloak.token);
+        headers.append("Authorization", "Bearer " + auth.user.access_token);
 
         const abortController = new AbortController();
         fetch("/api/import/" + matchId, {
@@ -129,7 +129,7 @@ function ImportStep2() {
         }
 
         let headers = new Headers();
-        headers.append("Authorization", "Bearer " + keycloak.token);
+        headers.append("Authorization", "Bearer " + auth.user.access_token);
         headers.append("Content-Type", "application/json");
 
         fetch("/api/import/" + matchId, {

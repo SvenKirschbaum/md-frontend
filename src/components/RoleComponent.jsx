@@ -1,11 +1,11 @@
-import {useKeycloak} from "@react-keycloak/web";
+import {useAuth} from "react-oidc-context";
 
 function RoleComponent(props) {
-    const {keycloak} = useKeycloak();
+    const auth = useAuth();
 
-    if (!keycloak.authenticated || !keycloak.tokenParsed.hasOwnProperty('resource_access') || !keycloak.tokenParsed.resource_access.hasOwnProperty('markusdope-backend')) return null;
+    if (!auth.isAuthenticated || !auth.user.profile.hasOwnProperty('resource_access') || !auth.user.profile.resource_access.hasOwnProperty('markusdope-backend')) return null;
 
-    const roles = keycloak.tokenParsed.resource_access["markusdope-backend"].roles;
+    const roles = auth.user.profile.resource_access["markusdope-backend"].roles;
 
     if (roles.includes(props.role)) return props.children;
 

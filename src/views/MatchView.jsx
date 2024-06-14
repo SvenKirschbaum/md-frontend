@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {useHistory, useParams} from "react-router";
-import {useKeycloak} from "@react-keycloak/web";
 import {Button, Modal} from "react-bootstrap";
 import Match from "../components/Match";
 
@@ -8,12 +7,13 @@ import './MatchView.css';
 import RoleComponent from "../components/RoleComponent";
 import Moment from "react-moment";
 import moment from "moment";
+import {useAuth} from "react-oidc-context";
 
 function MatchView() {
     const history = useHistory();
     const [data, setData] = useState();
     const {id} = useParams();
-    const {keycloak} = useKeycloak();
+    const auth = useAuth();
 
     useEffect(() => {
         const abortController = new AbortController();
@@ -42,7 +42,7 @@ function MatchView() {
 
     const deleteMatch = () => {
         let headers = new Headers();
-        headers.append("Authorization", "Bearer " + keycloak.token);
+        headers.append("Authorization", "Bearer " + auth.user.access_token);
 
         fetch("/api/match/" + id, {
             headers: headers,

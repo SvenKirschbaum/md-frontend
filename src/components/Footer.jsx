@@ -1,9 +1,9 @@
 import React from 'react';
 
 import './Footer.css'
-import {useKeycloak} from "@react-keycloak/web";
 import {Link} from "react-router-dom";
 import RoleComponent from "./RoleComponent";
+import {useAuth} from "react-oidc-context";
 
 function Footer() {
     return (
@@ -21,18 +21,18 @@ function Footer() {
 
 function LoginComponent() {
 
-    const {keycloak} = useKeycloak();
+    const auth = useAuth();
 
-    if (keycloak.authenticated) {
+    if (auth.isAuthenticated) {
         return (
             <div>
-                <span className={"d-none d-sm-inline"}>Eingeloggt als </span>{keycloak.idTokenParsed.preferred_username}
+                <span className={"d-none d-sm-inline"}>Eingeloggt als </span>{auth.user.profile.preferred_username}
             </div>
         );
     } else {
         return (
             <div>
-                <span className={"login"} onClick={keycloak.login}>Login</span>
+                <span className={"login"} onClick={auth.signinRedirect}>Login</span>
             </div>
         );
     }
