@@ -8,7 +8,7 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM nginx:1.27.2-alpine-slim@sha256:9ebd266ba0ddab1bf6c0f7580bb53f373bf5ac137ec02430169d20c4c139c70b
+FROM nginx:1.27.3-alpine-slim@sha256:c21b5407a5538e72152ae2b221495a5348ee7bc8bd80720aac62206dd65a4579
 
 RUN echo -e "\
 server_tokens off;\
