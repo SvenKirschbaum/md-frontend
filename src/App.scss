@@ -1,0 +1,24 @@
+$body-bg-dark: #222;
+$secondary: #444444;
+$card-cap-bg: #444;
+$card-bg: #303030;
+$card-border-width: 0;
+$card-cap-padding-y: "0.8em";
+$link-decoration: none;
+
+@import "bootstrap/scss/bootstrap";
+
+.content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+a:visited, a:hover {
+    color: inherit !important;
+}

@@ -39,7 +39,7 @@ function ImportStep1() {
     }
 
     return (
-        <div className={"import-container"}>
+        <div className={"import-container  modal d-block position-relative"}>
             <Modal.Dialog
                 centered={true}
                 size={"lg"}
