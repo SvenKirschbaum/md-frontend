@@ -85,7 +85,7 @@ const customStyles = {
 const columns = [
     {
         name: "Name",
-        selector: "playerName",
+        selector: row => row.playerName,
         sortable: true,
         grow: 1.5,
         sortFunction: (e1, e2) => e1.playerName.localeCompare(e2.playerName),
@@ -103,27 +103,27 @@ const columns = [
     },
     {
         name: "Wins",
-        selector: "wins",
+        selector: row => row.wins,
         sortable: true
     },
     {
         name: "Losses",
-        selector: "losses",
+        selector: row => row.losses,
         sortable: true,
     },
     {
         name: "Kills",
-        selector: "kills",
+        selector: row => row.kills,
         sortable: true,
     },
     {
         name: "Deaths",
-        selector: "deaths",
+        selector: row => row.deaths,
         sortable: true,
     },
     {
         name: "Assists",
-        selector: "assists",
+        selector: row => row.assists,
         sortable: true,
     },
     {
@@ -134,7 +134,7 @@ const columns = [
     },
     {
         name: "Total Damage",
-        selector: 'damage',
+        selector: row => row.damage,
         sortable: true,
         format: (data) => <CustomNumberFormat>{data.damage}</CustomNumberFormat>,
     },
@@ -219,7 +219,7 @@ function PlayerStats(props) {
             className={props.className}
             customStyles={customStyles}
             expandableRows
-            expandableRowsComponent={<PlayerDetails/>}
+            expandableRowsComponent={PlayerDetails}
             actions={
                 <Row className={"data-table-actions"}>
                     <Col xs={6} sm={5} md={4} xl={3}>
