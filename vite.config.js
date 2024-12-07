@@ -27,25 +27,7 @@ export default defineConfig({
         port: 3000
     },
     build: {
-        outDir: 'build',
-        rollupOptions: {
-            output: {
-                manualChunks: (id, meta) => {
-                    if (id.includes('bootstrap')) {
-                        return 'bootstrap';
-                    }
-                    if (id.includes('moment')) {
-                        return 'moment';
-                    }
-                    if (id.includes('react')) {
-                        return 'react';
-                    }
-                    if (id.includes('node_modules')) {
-                        return 'vendor';
-                    }
-                }
-            }
-        }
+        outDir: 'build'
     },
     resolve: {
         // Required for react-moment: https://github.com/vitejs/vite/issues/7376
