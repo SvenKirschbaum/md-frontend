@@ -12,10 +12,10 @@ import Container from "react-bootstrap/Container";
 import {ChampionImage, ItemImage, SummonerSpellImage} from "./LolAssets";
 import Moment from "react-moment";
 import moment from "moment";
-import {useHistory} from "react-router";
 import {VersionContext} from "./version";
 import {SeasonContext, useSeason} from "./season";
 import {trackPromise, usePromiseTracker} from "react-promise-tracker";
+import {useNavigate, useNavigation} from "react-router";
 
 createTheme('custom-dark', {
     text: {
@@ -306,7 +306,7 @@ function PlayerDetails(props) {
 
 function PlayerMatchEntry(props) {
     const data = props.data;
-    const history = useHistory();
+    const navigate = useNavigate();
 
     let itemSlots = new Array(7);
     itemSlots.fill(undefined);
@@ -317,7 +317,7 @@ function PlayerMatchEntry(props) {
     }));
 
     const onClick = () => {
-        history.push("/match/" + data.matchId);
+        navigate("/match/" + data.matchId);
     }
 
 

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useHistory, useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import {Button, Modal} from "react-bootstrap";
 import Match from "../components/Match";
 
@@ -10,10 +10,10 @@ import moment from "moment";
 import {useAuth} from "react-oidc-context";
 
 function MatchView() {
-    const history = useHistory();
     const [data, setData] = useState();
     const {id} = useParams();
     const auth = useAuth();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const abortController = new AbortController();
@@ -52,7 +52,7 @@ function MatchView() {
             return res;
         }).then(_ => {
             alert("Match erfolgreich gelöscht");
-            history.push("/");
+            navigate("/");
         })
             .catch(reason => {
                 alert("Error deleting Match: " + reason)
@@ -83,7 +83,7 @@ function MatchView() {
                 </Modal.Body>
 
                 <Modal.Footer className={"justify-content-between"}>
-                    <Button variant="secondary" onClick={history.goBack}>Zurück</Button>
+                    <Button variant="secondary" onClick={() => navigate(-1)}>Zurück</Button>
                     <RoleComponent role={"manager"}>
                         <Button variant="danger" onClick={deleteMatch}>Löschen</Button>
                     </RoleComponent>

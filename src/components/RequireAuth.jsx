@@ -1,9 +1,9 @@
-import {Redirect, Route} from "react-router";
+import {Navigate, Redirect, Route} from "react-router";
 import React from "react";
 import {useAuth} from "react-oidc-context";
 
-function RoleRoute(ownprops) {
-    const {component: Component, role, ...props} = ownprops;
+function RequireAuth(props) {
+    const {role, children} = props;
 
     const auth = useAuth();
 
@@ -15,16 +15,7 @@ function RoleRoute(ownprops) {
         }
     }
 
-    return (
-        <Route
-            {...props}
-            render={props => (
-                allowed ?
-                    <Component {...props} /> :
-                    <Redirect to='/'/>
-            )}
-        />
-    )
+    return allowed ? children : <Navigate  to={"/"}/>;
 }
 
-export default RoleRoute;
+export default RequireAuth;

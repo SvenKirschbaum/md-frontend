@@ -1,12 +1,12 @@
 import React, {useCallback} from 'react';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import './App.scss';
 
 import Footer from "./components/Footer";
 import Home from "./views/Home";
 import NoMatch from "./views/NoMatch";
 import ImportMatch from "./views/ImportMatch";
-import RoleRoute from "./components/RoleRoute";
+import RequireAuth from "./components/RequireAuth.jsx";
 import MatchView from "./views/MatchView";
 import {CookieConsent} from "react-cookie-consent";
 import {AuthProvider} from "react-oidc-context";
@@ -35,15 +35,28 @@ function App() {
                 automaticSilentRenew={true}
                 onSigninCallback={onSigninCallback}
             >
-                <Router>
+                <Router
+                    future={{
+                        v7_relativeSplatPath: true,
+                        v7_startTransition: true,
+                        v7_fetcherPersist: true,
+                        v7_normalizeFormMethod: true,
+                        v7_partialHydration: true,
+                        v7_skipActionStatusRevalidation: true,
+                    }}
+                >
                     <div className={"content"}>
                         <div className={"main-content"}>
-                            <Switch>
-                                <Route path={"/"} exact component={Home}/>
-                                <Route path={"/match/:id"} component={MatchView}/>
-                                <RoleRoute role="manager" path={"/import"} component={ImportMatch}/>
-                                <Route component={NoMatch}/>
-                            </Switch>
+                            <Routes>
+                                <Route path={"/"} exact element={<Home />}/>
+                                <Route path={"/match/:id"} element={<MatchView />}/>
+                                <Route path={"/import/*"} element={
+                                    <RequireAuth role="manager">
+                                        <ImportMatch/>
+                                    </RequireAuth>
+                                }/>
+                                <Route element={<NoMatch />}/>
+                            </Routes>
                         </div>
                         <Footer/>
                     </div>

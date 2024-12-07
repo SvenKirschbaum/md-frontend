@@ -3,25 +3,26 @@ import React, {useEffect, useState} from "react";
 import './ImportMatch.css'
 
 import {Button, Form, Modal} from "react-bootstrap";
-import {Route, Switch, useHistory, useParams} from "react-router";
+import {Route, useNavigate, useParams} from "react-router";
 import NoMatch from "./NoMatch";
 import Match from "../components/Match";
 import Moment from "react-moment";
 import moment from "moment";
 import {useAuth} from "react-oidc-context";
+import {Routes} from "react-router-dom";
 
 function ImportMatch() {
     return (
-        <Switch>
-            <Route path={"/import"} exact component={ImportStep1}/>
-            <Route path={"/import/:matchId"} exact component={ImportStep2}/>
-            <Route component={NoMatch}/>
-        </Switch>
+        <Routes>
+            <Route path={"/"} exact element={<ImportStep1 />}/>
+            <Route path={"/:matchId"} exact element={<ImportStep2 />}/>
+            <Route element={<NoMatch />}/>
+        </Routes>
     );
 }
 
 function ImportStep1() {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const [matchId, setMatchId] = useState("");
 
@@ -63,8 +64,8 @@ function ImportStep1() {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={() => history.push("/")}>Zurück</Button>
-                    <Button variant="primary" onClick={() => history.push("/import/" + matchId)}>Importieren</Button>
+                    <Button variant="secondary" onClick={() => navigate("/")}>Zurück</Button>
+                    <Button variant="primary" onClick={() => navigate("/import/" + matchId)}>Importieren</Button>
                 </Modal.Footer>
             </Modal.Dialog>
         </div>
@@ -73,7 +74,7 @@ function ImportStep1() {
 
 function ImportStep2() {
     const {matchId} = useParams();
-    const history = useHistory();
+    const navigate = useNavigate();
     const auth = useAuth()
 
     const [data, setData] = useState(null);
@@ -104,7 +105,7 @@ function ImportStep2() {
                 if (reason.message) {
                     alert("Error loading Match Data: " + reason)
                 }
-                history.push("/import");
+                navigate("/import");
             })
 
         return () => abortController.abort();
@@ -141,7 +142,7 @@ function ImportStep2() {
             return res;
         }).then(value => {
             alert("Match erfolgreich gespeichert");
-            history.push("/");
+            navigate("/");
         })
             .catch(reason => {
                 alert("Error saving Match: " + reason)
@@ -149,7 +150,7 @@ function ImportStep2() {
     }
 
     return (
-        <div className={"import-container"}>
+        <div className={"import-container modal d-block position-relative"}>
             <Modal.Dialog
                 centered={true}
                 size={"xl"}
@@ -170,7 +171,7 @@ function ImportStep2() {
                 </Modal.Body>
 
                 <Modal.Footer className={"justify-content-between"}>
-                    <Button variant="secondary" onClick={history.goBack}>Zurück</Button>
+                    <Button variant="secondary" onClick={() => navigate(-1)}>Zurück</Button>
                     <Button variant="primary" onClick={importMatch}>Importieren</Button>
                 </Modal.Footer>
             </Modal.Dialog>
