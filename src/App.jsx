@@ -1,16 +1,15 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useCallback} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import './App.css';
+import './App.scss';
 
 import Footer from "./components/Footer";
 import Home from "./views/Home";
 import NoMatch from "./views/NoMatch";
-import './res/bootstrap.min.css';
 import ImportMatch from "./views/ImportMatch";
 import RoleRoute from "./components/RoleRoute";
 import MatchView from "./views/MatchView";
 import {CookieConsent} from "react-cookie-consent";
-import {AuthProvider, useAuth} from "react-oidc-context";
+import {AuthProvider} from "react-oidc-context";
 
 function App() {
 

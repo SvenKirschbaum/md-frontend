@@ -60,7 +60,7 @@ function MatchView() {
     };
 
     return (
-        <div className={"match-container"}>
+        <div className={"match-container modal d-block position-relative"}>
             <Modal.Dialog
                 centered={true}
                 size={"xl"}

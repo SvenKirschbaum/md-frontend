@@ -116,3 +116,9 @@
 .provisional-switch {
     font-size: 0.85rem;
 }
+
+.data-table-actions {
+    flex-grow: 1;
+    justify-content: right;
+    align-items: center;
+}

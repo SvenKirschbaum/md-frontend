@@ -221,35 +221,38 @@ function PlayerStats(props) {
             expandableRows
             expandableRowsComponent={<PlayerDetails/>}
             actions={
-                <Form inline>
-                    <Form.Switch
-                        id={"provisional-switch"}
-                        className={"provisional-switch"}
-                        label="Include provisional Rankings"
-                        checked={showProvisional}
-                        onChange={(e) => setShowProvisional(e.target.checked)}
-                    />
-                    <Form.Control
-                        id="seasonSelect"
-                        as="select"
-                        custom
-                        className="ml-4"
-                        onChange={(e) => {
-                            setSeason(e.target.value);
-                            setSelectedSeason(e.target.value);
-                        }}
-                        value={selectedSeason}
-                    >
-                        {seasonLoading ?
-                            <option>Loading...</option>
-                            :
-                            <React.Fragment>
-                                <option value={0}>All Seasons</option>
-                                {[...Array(currentSeason).keys()].map(season => <option key={season} value={season+1}>Season {season+1}</option>)}
-                            </React.Fragment>
-                        }
-                    </Form.Control>
-                </Form>
+                <Row className={"data-table-actions"}>
+                    <Col xs={6} sm={5} md={4} xl={3}>
+                        <Form.Switch
+                            id={"provisional-switch"}
+                            className={"provisional-switch"}
+                            label="Include provisional Rankings"
+                            checked={showProvisional}
+                            onChange={(e) => setShowProvisional(e.target.checked)}
+                        />
+                    </Col>
+                    <Col xs={6} sm={4} md={3} xl={2}>
+                        <Form.Control
+                            id="seasonSelect"
+                            as="select"
+                            className="ml-4"
+                            onChange={(e) => {
+                                setSeason(e.target.value);
+                                setSelectedSeason(e.target.value);
+                            }}
+                            value={selectedSeason}
+                        >
+                            {seasonLoading ?
+                                <option>Loading...</option>
+                                :
+                                <React.Fragment>
+                                    <option value={0}>All Seasons</option>
+                                    {[...Array(currentSeason).keys()].map(season => <option key={season} value={season+1}>Season {season+1}</option>)}
+                                </React.Fragment>
+                            }
+                        </Form.Control>
+                    </Col>
+                </Row>
             }
             noDataComponent={<p>There is no data for the choosen filters</p>}
         />
