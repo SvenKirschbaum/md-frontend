@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "moment": "2.30.1",
     "moment-duration-format": "2.3.2",
