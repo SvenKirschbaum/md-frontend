@@ -23,7 +23,7 @@
     "react-router-dom": "7.1.1",
     "react-slick": "0.30.3",
     "slick-carousel": "1.8.1",
-    "styled-components": "6.1.13"
+    "styled-components": "6.1.14"
   },
   "devDependencies": {
     "@vitejs/plugin-basic-ssl": "^1.0.1",
