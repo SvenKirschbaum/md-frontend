@@ -1,4 +1,4 @@
-FROM node:22.13.0-alpine@sha256:f2dc6eea95f787e25f173ba9904c9d0647ab2506178c7b5b7c5a3d02bc4af145 as build
+FROM node:22.14.0-alpine@sha256:f96abbefa5558bcf3a309a5da9e1e9bd6dece7704b895c1213ca62f245061d3f as build
 
 WORKDIR /build
 
@@ -8,7 +8,7 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM nginx:1.27.3-alpine-slim@sha256:5a56ae385906c5b43ccc99379bce883aa93dc0556d7f705ba501d819925e8fa1
+FROM nginx:1.27.4-alpine-slim@sha256:d806155689f8220eb4c4bc7a6ac643829a5944ab522ec6e4d97f17e065f3dc71
 
 RUN echo -e "\
 server_tokens off;\
