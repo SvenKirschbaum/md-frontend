@@ -5,7 +5,6 @@ import Match from "../components/Match";
 
 import './MatchView.css';
 import RoleComponent from "../components/RoleComponent";
-import Moment from "react-moment";
 import moment from "moment";
 import {useAuth} from "react-oidc-context";
 
@@ -71,7 +70,7 @@ function MatchView() {
                         <div>{data ? `Markus Dope Season ${data.season}` : ""}</div>
                     </div>
                     <div className={"text-right"}>
-                        <div>{data ? <Moment format="DD.MM.YYYY HH:mm">{data.match.creationTime}</Moment> : ""}</div>
+                        <div>{data ? moment(data.match.creationTime).format("DD.MM.YYYY HH:mm") : ""}</div>
                         <div>{data ? moment.duration(data.match.duration).format("m:ss", {trim: false}) : ""}</div>
                     </div>
                 </Modal.Header>

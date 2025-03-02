@@ -10,7 +10,6 @@ import Spinner from "react-bootstrap/Spinner";
 import {Col, Form, Row} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import {ChampionImage, ItemImage, SummonerSpellImage} from "./LolAssets";
-import Moment from "react-moment";
 import moment from "moment";
 import {VersionContext} from "./version";
 import {SeasonContext, useSeason} from "./season";
@@ -348,7 +347,7 @@ function PlayerMatchEntry(props) {
                         <CustomNumberFormat>{data.player.stats.goldEarned}</CustomNumberFormat>
                     </div>
                     <div className={"matchTime"}>
-                        <div>{<Moment format="DD.MM.YYYY HH:mm">{data.matchCreationTime}</Moment>}</div>
+                        <div>{moment(data.matchCreationTime).format("DD.MM.YYYY HH:mm")}</div>
                         <div>{moment.duration(data.matchDuration).format("m:ss", {trim: false})}</div>
                     </div>
                 </div>

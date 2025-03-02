@@ -29,10 +29,6 @@ export default defineConfig({
     build: {
         outDir: 'build'
     },
-    resolve: {
-        // Required for react-moment: https://github.com/vitejs/vite/issues/7376
-        mainFields: [],
-    },
     css: {
         preprocessorOptions: {
             scss: {

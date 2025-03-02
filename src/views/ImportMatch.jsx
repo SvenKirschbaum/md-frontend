@@ -6,7 +6,6 @@ import {Button, Form, Modal} from "react-bootstrap";
 import {Route, useNavigate, useParams} from "react-router";
 import NoMatch from "./NoMatch";
 import Match from "../components/Match";
-import Moment from "react-moment";
 import moment from "moment";
 import {useAuth} from "react-oidc-context";
 import {Routes} from "react-router-dom";
@@ -158,7 +157,7 @@ function ImportStep2() {
                 <Modal.Header>
                     <Modal.Title>Match importieren: Spieler zuordnen</Modal.Title>
                     <div className={"text-right"}>
-                        <div>{data ? <Moment format="DD.MM.YYYY HH:mm">{data.match.creationTime}</Moment> : ""}</div>
+                        <div>{data ? moment(data.match.creationTime).format("DD.MM.YYYY HH:mm") : ""}</div>
                         <div>{data ? moment.duration(data.match.duration).format("m:ss", {trim: false}) : ""}</div>
                     </div>
                 </Modal.Header>
