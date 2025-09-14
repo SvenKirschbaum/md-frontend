@@ -23,11 +23,11 @@
     "styled-components": "6.1.19"
   },
   "devDependencies": {
-    "@vitejs/plugin-basic-ssl": "^2.0.0",
-    "@vitejs/plugin-react": "^5.0.0",
+    "@vitejs/plugin-basic-ssl": "2.1.0",
+    "@vitejs/plugin-react": "5.0.2",
     "sass-embedded": "1.92.1",
-    "vite": "^7.0.0",
-    "vite-plugin-svgr": "^4.0.0"
+    "vite": "7.1.5",
+    "vite-plugin-svgr": "4.5.0"
   },
   "scripts": {
     "start": "vite",
