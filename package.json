@@ -24,9 +24,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-basic-ssl": "2.1.0",
-    "@vitejs/plugin-react": "5.0.4",
+    "@vitejs/plugin-react": "5.1.0",
     "sass-embedded": "1.93.2",
-    "vite": "7.1.11",
+    "vite": "7.1.12",
     "vite-plugin-svgr": "4.5.0"
   },
   "scripts": {
