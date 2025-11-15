@@ -17,14 +17,14 @@
     "react-oidc-context": "3.3.0",
     "react-pretty-numbers": "3.0.0",
     "react-promise-tracker": "2.1.1",
-    "react-router-dom": "7.9.5",
+    "react-router-dom": "7.9.6",
     "react-slick": "0.31.0",
     "slick-carousel": "1.8.1",
     "styled-components": "6.1.19"
   },
   "devDependencies": {
     "@vitejs/plugin-basic-ssl": "2.1.0",
-    "@vitejs/plugin-react": "5.1.0",
+    "@vitejs/plugin-react": "5.1.1",
     "sass-embedded": "1.93.3",
     "vite": "7.2.2",
     "vite-plugin-svgr": "4.5.0"
