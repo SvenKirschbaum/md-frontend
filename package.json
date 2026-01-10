@@ -11,7 +11,7 @@
     "react-app-polyfill": "3.0.0",
     "react-autosuggest": "10.1.0",
     "react-bootstrap": "2.10.10",
-    "react-cookie-consent": "9.0.0",
+    "react-cookie-consent": "10.0.0",
     "react-data-table-component": "7.7.0",
     "react-dom": "19.2.3",
     "react-oidc-context": "3.3.0",
