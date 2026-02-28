@@ -17,10 +17,10 @@
     "react-oidc-context": "3.3.0",
     "react-pretty-numbers": "3.0.0",
     "react-promise-tracker": "2.1.1",
-    "react-router-dom": "7.13.0",
+    "react-router-dom": "7.13.1",
     "react-slick": "0.31.0",
     "slick-carousel": "1.8.1",
-    "styled-components": "6.3.10"
+    "styled-components": "6.3.11"
   },
   "devDependencies": {
     "@vitejs/plugin-basic-ssl": "2.1.4",
