@@ -5,7 +5,7 @@ import './Records.css';
 import Card from "react-bootstrap/Card";
 import CustomNumberFormat from "./CustomNumberFormat";
 
-import Slider from "react-slick";
+import SlickSlider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Spinner from "react-bootstrap/Spinner";
@@ -70,6 +70,8 @@ const breakpoints = [
         }
     }
 ]
+
+const Slider = SlickSlider.default ?? SlickSlider;
 
 function Records() {
     const [recordData, setRecordData] = useState({});
