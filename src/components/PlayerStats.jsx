@@ -52,11 +52,6 @@ createTheme('custom-dark', {
     striped: {
         "default": 'rgba(255, 255, 255, .1)',
         text: '#FFFFFF'
-    },
-    rows: {
-        denseStyle: {
-            minHeight: '300px'
-        }
     }
 });
 
@@ -83,6 +78,7 @@ const customStyles = {
 
 const columns = [
     {
+        id: "playerName",
         name: "Name",
         selector: row => row.playerName,
         sortable: true,
@@ -206,12 +202,12 @@ function PlayerStats(props) {
             title={"Player Stats"}
             columns={columns}
             data={showProvisional ? data : filteredData}
-            keyField={"name"}
+            keyField={"playerName"}
             responsive={true}
             striped={true}
             dense={true}
             persistTableHead={true}
-            defaultSortField={"playerName"}
+            defaultSortFieldId={"playerName"}
             highlightOnHover={true}
             progressPending={statsLoading}
             theme={"custom-dark"}
