@@ -12,7 +12,7 @@
     "react-autosuggest": "10.1.0",
     "react-bootstrap": "2.10.10",
     "react-cookie-consent": "10.0.2",
-    "react-data-table-component": "8.10.0",
+    "react-data-table-component": "8.11.0",
     "react-dom": "19.3.0",
     "react-oidc-context": "3.3.1",
     "react-pretty-numbers": "3.0.0",
@@ -24,8 +24,8 @@
   "devDependencies": {
     "@vitejs/plugin-basic-ssl": "2.3.0",
     "@vitejs/plugin-react": "6.1.1",
-    "sass-embedded": "1.105.0",
-    "vite": "8.3.0",
+    "sass-embedded": "1.105.1",
+    "vite": "8.3.1",
     "vite-plugin-svgr": "5.2.0"
   },
   "scripts": {
