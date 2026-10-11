@@ -19,7 +19,7 @@
     "react-promise-tracker": "2.1.1",
     "react-router-dom": "7.18.4",
     "react-slick": "0.31.0",
-    "slick-carousel": "1.8.1"
+    "slick-carousel": "2.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-basic-ssl": "2.3.0",
